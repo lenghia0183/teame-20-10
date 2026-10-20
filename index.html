@@ -4,275 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chúc mừng Ngày Phụ nữ Việt Nam 20/10</title>
-    
-    <!-- Google Fonts -->
+    <meta name="description" content="Team E gửi lời chúc Ngày Phụ nữ Việt Nam 20/10 đến các chị em đồng nghiệp.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS - Animate On Scroll - Tạm thời tắt -->
-    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
-    
-    <!-- GLightbox -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-    
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Gradient Background -->
-    <div class="gradient-bg"></div>
-    
-    <!-- Stars Background -->
-    <canvas id="stars-canvas"></canvas>
-    
-    <!-- Cursor Sparkle Trail -->
-    <canvas id="cursor-trail"></canvas>
-    
-    <!-- Falling Flowers Container -->
-    <div id="falling-flowers"></div>
-    
-    <!-- Floating Icons -->
-    <div class="floating-icons">
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-sparkles"></i>
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-sparkles"></i>
-    </div>
-    
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
-                <span class="line">Chúc mừng</span>
-                <span class="line">Ngày Phụ nữ Việt Nam 20/10</span>
-            </h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                Team E trân trọng gửi những đóa hoa và lời chúc yêu thương nhất đến các chị em đồng nghiệp – những bông hoa xinh đẹp, dịu dàng và tài năng! 🌹
-            </p>
-            <small class="hero-subtitle">Copyright © 2026  Team E - Designed by NghiaLc</small>
-            <br>
-            <button class="btn-primary" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                <span>Khám phá lời chúc</span>
-                <i class="fas fa-arrow-down"></i>
-            </button>
+    <canvas id="petals-canvas" aria-hidden="true"></canvas>
 
+    <!-- Hero -->
+    <header class="hero" id="hero">
+        <div class="hero-frame" aria-hidden="true">
+            <span class="corner corner--tl"></span>
+            <span class="corner corner--tr"></span>
+            <span class="corner corner--bl"></span>
+            <span class="corner corner--br"></span>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Message Section -->
-    <section class="message-section" id="message">
-        <div class="container">
-            <div class="message-card glass-card" data-aos="fade-up" data-aos-duration="1000">
-                <div class="message-content">
-                    <i class="fas fa-quote-left message-icon"></i>
-                    <p class="message-text">
-                        Nhân dịp kỷ niệm Ngày Phụ nữ Việt Nam 20/10,<br>
-                        Team E xin gửi đến các chị em lời chúc chân thành và ấm áp nhất! 🌷<br><br>
-                        Chúc các chị em:<br>
-                        🌸 Luôn rạng rỡ, xinh đẹp và tràn đầy sức sống như những đóa hoa<br>
-                        💪 Dồi dào sức khỏe để chinh phục mọi mục tiêu trong công việc<br>
-                        🚀 Sự nghiệp thăng tiến, mọi dự án đều thành công rực rỡ<br>
-                        🏡 Gia đình hạnh phúc, êm ấm, luôn là chốn bình yên để trở về<br>
-                        💖 Được yêu thương, trân trọng và che chở mỗi ngày, không chỉ riêng 20/10<br>
-                        ✨ Và luôn giữ mãi nụ cười – món quà đẹp nhất các chị em mang đến cho Team E
-                    </p>
-                    <p class="message-text">
-                        Cảm ơn các chị em đã:<br>
-                        🌟 Mang đến sự tinh tế, chu đáo trong từng dòng code và từng câu trả lời khách hàng<br>
-                        🤝 Là nguồn động lực, là chỗ dựa vững vàng của cả Team E<br>
-                        🌈 Thắp lên không khí ấm áp, vui tươi mỗi ngày đi làm<br>
-                        💐 Vừa giỏi việc nước, vừa đảm việc nhà – thật đáng ngưỡng mộ!<br><br>
-                        <strong>Chúc các chị em một ngày 20/10 thật ý nghĩa và hạnh phúc! ❤️</strong>
-                    </p>
-                    <i class="fas fa-quote-right message-icon"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Photo Gallery Section -->
-    <section class="gallery-section" id="gallery">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">
-                Kỷ niệm đáng nhớ
-            </h2>
-            <div class="gallery-grid">
-                <a href="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/image_2.png?v=1772785335" class="gallery-item glightbox" data-aos="zoom-in" data-aos-duration="800">
-                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/image_2.png?v=1772785335" alt="Gallery Image 1">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </a>
-                <a href="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/image_3.png?v=1772785402" class="gallery-item glightbox" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
-                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/image_3.png?v=1772785402" alt="Gallery Image 2">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </a>
-                <a href="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/IMG_20260121_20534246.jpg?v=1772785520" class="gallery-item glightbox" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
-                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/IMG_20260121_20534246.jpg?v=1772785520" alt="Gallery Image 3">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </a>
-                <!-- NOTE: .heic thường không hiển thị được trên trình duyệt Windows/Chrome; mở tab mới để tải/xem nếu hệ thống hỗ trợ -->
-                <a href="https://cdn.shopify.com/s/files/1/0935/1761/1304/files/IMG20251101132650.jpg?v=1772789360" class="gallery-item glightbox" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
-                    <img src="https://cdn.shopify.com/s/files/1/0935/1761/1304/files/IMG20251101132650.jpg?v=1772789360" alt="Gallery Image 4">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </a>
-                <a href="https://cdn.shopify.com/s/files/1/0660/8610/9378/files/image_2.png?v=1772785653" class="gallery-item glightbox" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800">
-                    <img src="https://cdn.shopify.com/s/files/1/0660/8610/9378/files/image_2.png?v=1772785653" alt="Gallery Image 5">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </a>
-                <a href="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/z6849359303815_ceba4476fffbec5da630409b698b4821.jpg?v=1772788125" class="gallery-item glightbox" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="800">
-                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/z6849359303815_ceba4476fffbec5da630409b698b4821.jpg?v=1772788125" alt="Gallery Image 6">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Appreciation Section -->
-    <section class="appreciation-section" id="appreciation">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">
-                Những điều làm nên vẻ đẹp của các chị em
-            </h2>
-            <div class="appreciation-grid">
-                <div class="appreciation-card glass-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
-                    <div class="card-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="card-title">Tài năng & bản lĩnh</h3>
-                    <p class="card-text">Tự tin, giỏi giang và luôn hoàn thành xuất sắc mọi nhiệm vụ – minh chứng rằng phụ nữ có thể làm được mọi điều! 💻✨</p>
-                </div>
-                <div class="appreciation-card glass-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                    <div class="card-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3 class="card-title">Dịu dàng & tinh tế</h3>
-                    <p class="card-text">Sự chu đáo, nhẹ nhàng trong từng lời nói giúp khách hàng hài lòng và đồng đội thấy ấm lòng. 💬💖</p>
-                </div>
-                <div class="appreciation-card glass-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                    <div class="card-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="card-title">Đảm đang & kiên cường</h3>
-                    <p class="card-text">Vừa vững vàng trong công việc, vừa vẹn tròn với gia đình – một nghị lực thật đáng trân quý. 🌷🔥</p>
-                </div>
-                <div class="appreciation-card glass-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-                    <div class="card-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="card-title">Gắn kết & sẻ chia</h3>
-                    <p class="card-text">Luôn sẵn sàng hỗ trợ đồng đội, lan tỏa năng lượng tích cực và giữ lửa cho cả Team E. 🤝💪</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Surprise Gift Section -->
-    <section class="gift-section" id="gift">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">
-                Món quà đặc biệt
-            </h2>
-            <div class="gift-container" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="gift-box" id="giftBox">
-                    <div class="gift-lid">
-                        <div class="gift-bow">
-                            <div class="bow-center"></div>
-                            <div class="bow-loop bow-loop-left"></div>
-                            <div class="bow-loop bow-loop-right"></div>
-                        </div>
-                    </div>
-                    <div class="gift-body"></div>
-                </div>
-                <button class="btn-gift" id="openGiftBtn">
-                    <span>Mở món quà 20/10</span>
-                    <i class="fas fa-gift"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Gift Modal -->
-    <div class="gift-modal" id="giftModal">
-        <div class="modal-content glass-card">
-            <button class="modal-close" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-body">
-                <i class="fas fa-heart modal-icon"></i>
-                <h2 class="modal-title">Chúc mừng 20/10!</h2>
-                <p class="modal-text">
-                    🎁 Món quà yêu thương từ Team E! 🎁<br><br>
-                    Chúc các chị em:<br>
-                    🌹 Một ngày 20/10 ngập tràn hoa, quà và những lời yêu thương<br>
-                    🌸 Mãi trẻ trung, xinh đẹp và rạng ngời<br>
-                    💪 Luôn khỏe mạnh, bình an và vững vàng trước mọi thử thách<br>
-                    💼 Công việc thuận lợi, thành công nối tiếp thành công<br>
-                    💖 Hạnh phúc trọn vẹn bên những người thân yêu<br>
-                    🤗 Và luôn nhớ rằng... Team E luôn trân trọng và đồng hành cùng các chị em!<br><br>
-                    <strong>Happy Vietnamese Women's Day từ Team E! 🎉</strong>
-                </p>
-                <div class="modal-sparkles">
-                    <i class="fas fa-sparkles"></i>
-                    <i class="fas fa-sparkles"></i>
-                    <i class="fas fa-sparkles"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer-text">
-                <i class="fas fa-heart"></i>
-                Happy Vietnamese Women's Day 20/10 – From Team E with Love! 💖
-                <i class="fas fa-sparkles"></i>
+
+        <div class="hero-inner">
+            <p class="eyebrow reveal">Team E trân trọng kính gửi</p>
+
+            <svg class="lotus reveal" viewBox="0 0 200 120" aria-hidden="true">
+                <path d="M100 110 C 80 80, 80 40, 100 10 C 120 40, 120 80, 100 110 Z"/>
+                <path d="M100 110 C 70 95, 50 60, 55 25 C 80 40, 95 75, 100 110 Z"/>
+                <path d="M100 110 C 130 95, 150 60, 145 25 C 120 40, 105 75, 100 110 Z"/>
+                <path d="M100 110 C 60 108, 25 85, 15 55 C 50 55, 85 85, 100 110 Z"/>
+                <path d="M100 110 C 140 108, 175 85, 185 55 C 150 55, 115 85, 100 110 Z"/>
+                <path d="M40 114 Q 100 122 160 114"/>
+            </svg>
+
+            <h1 class="hero-date reveal">
+                <span class="hero-date__day">20</span>
+                <span class="hero-date__dot">·</span>
+                <span class="hero-date__month">10</span>
+            </h1>
+            <p class="hero-title reveal">Ngày Phụ nữ Việt Nam</p>
+            <p class="hero-subtitle reveal">
+                Gửi những đóa hoa xinh đẹp, dịu dàng và tài năng nhất của Team E
             </p>
+
+            <a href="#letter" class="btn btn--gold reveal">Mở thư chúc</a>
         </div>
+
+        <a href="#letter" class="scroll-hint" aria-label="Cuộn xuống">
+            <span></span>
+        </a>
+    </header>
+
+    <main>
+        <!-- Letter -->
+        <section class="section section--letter" id="letter">
+            <h2 class="section-title reveal">
+                <span class="section-title__script">Một lá thư</span>
+                gửi các chị em
+            </h2>
+
+            <div class="envelope reveal" id="envelope">
+                <div class="envelope__back" aria-hidden="true"></div>
+
+                <article class="letter-paper" id="letterPaper">
+                    <p class="letter-paper__greeting">Thân gửi các chị em,</p>
+                    <p>
+                        Nhân dịp kỷ niệm Ngày Phụ nữ Việt Nam 20/10, Team E xin gửi đến các chị em
+                        lời chúc chân thành và ấm áp nhất.
+                    </p>
+                    <ul class="letter-paper__wishes">
+                        <li>Luôn rạng rỡ, xinh đẹp và tràn đầy sức sống như những đóa hoa</li>
+                        <li>Dồi dào sức khỏe để chinh phục mọi mục tiêu trong công việc</li>
+                        <li>Sự nghiệp thăng tiến, mọi dự án đều thành công rực rỡ</li>
+                        <li>Gia đình hạnh phúc, êm ấm, luôn là chốn bình yên để trở về</li>
+                        <li>Được yêu thương, trân trọng và che chở mỗi ngày, không chỉ riêng 20/10</li>
+                    </ul>
+                    <p>
+                        Cảm ơn các chị em đã mang đến sự tinh tế trong từng dòng code, sự chu đáo trong
+                        từng câu trả lời khách hàng, và thắp lên không khí ấm áp mỗi ngày đi làm.
+                        Các chị em là nguồn động lực và chỗ dựa vững vàng của cả Team E.
+                    </p>
+                    <p class="letter-paper__sign">
+                        Thương mến,<br>
+                        <span>Team E</span>
+                    </p>
+                </article>
+
+                <div class="envelope__front" aria-hidden="true"></div>
+                <div class="envelope__flap" aria-hidden="true"></div>
+                <button class="envelope__seal" id="envelopeSeal" type="button" aria-label="Mở phong thư">E</button>
+            </div>
+            <p class="envelope-hint reveal" id="envelopeHint">Chạm vào con dấu để mở thư</p>
+        </section>
+
+        <!-- Gallery -->
+        <section class="section section--gallery" id="gallery">
+            <h2 class="section-title section-title--light reveal">
+                <span class="section-title__script">Những khoảnh khắc</span>
+                đáng nhớ
+            </h2>
+
+            <div class="polaroid-wall">
+                <figure class="polaroid reveal" tabindex="0">
+                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/image_2.png?v=1772785335" alt="Kỷ niệm Team E 1" loading="lazy">
+                    <figcaption>Cùng nhau</figcaption>
+                </figure>
+                <figure class="polaroid reveal" tabindex="0">
+                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/image_3.png?v=1772785402" alt="Kỷ niệm Team E 2" loading="lazy">
+                    <figcaption>Rạng rỡ</figcaption>
+                </figure>
+                <figure class="polaroid reveal" tabindex="0">
+                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/IMG_20260121_20534246.jpg?v=1772785520" alt="Kỷ niệm Team E 3" loading="lazy">
+                    <figcaption>Ấm áp</figcaption>
+                </figure>
+                <figure class="polaroid reveal" tabindex="0">
+                    <img src="https://cdn.shopify.com/s/files/1/0935/1761/1304/files/IMG20251101132650.jpg?v=1772789360" alt="Kỷ niệm Team E 4" loading="lazy">
+                    <figcaption>Gắn kết</figcaption>
+                </figure>
+                <figure class="polaroid reveal" tabindex="0">
+                    <img src="https://cdn.shopify.com/s/files/1/0660/8610/9378/files/image_2.png?v=1772785653" alt="Kỷ niệm Team E 5" loading="lazy">
+                    <figcaption>Tươi vui</figcaption>
+                </figure>
+                <figure class="polaroid reveal" tabindex="0">
+                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/z6849359303815_ceba4476fffbec5da630409b698b4821.jpg?v=1772788125" alt="Kỷ niệm Team E 6" loading="lazy">
+                    <figcaption>Team E</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Virtues -->
+        <section class="section section--virtues" id="virtues">
+            <h2 class="section-title reveal">
+                <span class="section-title__script">Bốn điều</span>
+                làm nên vẻ đẹp của các chị em
+            </h2>
+
+            <ol class="virtues">
+                <li class="virtue reveal">
+                    <span class="virtue__number">I</span>
+                    <h3 class="virtue__name">Tài năng &amp; bản lĩnh</h3>
+                    <p>Tự tin, giỏi giang và luôn hoàn thành xuất sắc mọi nhiệm vụ – minh chứng rằng phụ nữ có thể làm được mọi điều.</p>
+                </li>
+                <li class="virtue reveal">
+                    <span class="virtue__number">II</span>
+                    <h3 class="virtue__name">Dịu dàng &amp; tinh tế</h3>
+                    <p>Sự chu đáo, nhẹ nhàng trong từng lời nói giúp khách hàng hài lòng và đồng đội thấy ấm lòng.</p>
+                </li>
+                <li class="virtue reveal">
+                    <span class="virtue__number">III</span>
+                    <h3 class="virtue__name">Đảm đang &amp; kiên cường</h3>
+                    <p>Vừa vững vàng trong công việc, vừa vẹn tròn với gia đình – một nghị lực thật đáng trân quý.</p>
+                </li>
+                <li class="virtue reveal">
+                    <span class="virtue__number">IV</span>
+                    <h3 class="virtue__name">Gắn kết &amp; sẻ chia</h3>
+                    <p>Luôn sẵn sàng hỗ trợ đồng đội, lan tỏa năng lượng tích cực và giữ lửa cho cả Team E.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Wish cards -->
+        <section class="section section--wishes" id="wishes">
+            <h2 class="section-title section-title--light reveal">
+                <span class="section-title__script">Rút một</span>
+                lời chúc dành riêng cho bạn
+            </h2>
+
+            <div class="wish-card reveal" id="wishCard">
+                <div class="wish-card__inner">
+                    <div class="wish-card__face wish-card__face--back">
+                        <svg viewBox="0 0 200 120" aria-hidden="true">
+                            <path d="M100 110 C 80 80, 80 40, 100 10 C 120 40, 120 80, 100 110 Z"/>
+                            <path d="M100 110 C 70 95, 50 60, 55 25 C 80 40, 95 75, 100 110 Z"/>
+                            <path d="M100 110 C 130 95, 150 60, 145 25 C 120 40, 105 75, 100 110 Z"/>
+                        </svg>
+                        <span>20 · 10</span>
+                    </div>
+                    <div class="wish-card__face wish-card__face--front">
+                        <span class="wish-card__emoji" id="wishEmoji">🌹</span>
+                        <p class="wish-card__text" id="wishText" aria-live="polite"></p>
+                        <span class="wish-card__from">— Team E</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn--gold reveal" id="drawWishButton" type="button">Rút lời chúc</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__script">Happy Vietnamese Women's Day</p>
+        <p>20 · 10 · 2026 — From Team E with love</p>
+        <small>Copyright © 2026 Team E - Designed by NghiaLc</small>
     </footer>
-    
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- AOS - Tạm thời tắt để tránh ẩn nội dung -->
-    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-    
-    <!-- tsParticles -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-    
-    <!-- Canvas Confetti -->
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh" hidden>
+        <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Đóng">×</button>
+        <img class="lightbox__image" id="lightboxImage" alt="">
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <!-- GLightbox -->
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    
-    <!-- Vanilla Tilt -->
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
-    
-    <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
