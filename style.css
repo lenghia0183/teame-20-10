@@ -465,45 +465,105 @@ img {
         var(--color-wine);
 }
 
-.polaroid-wall {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem 2.4rem;
-    max-width: 1080px;
-    margin: 0 auto;
+.section--gallery {
+    overflow: hidden;
 }
 
-.polaroid-wall .polaroid {
-    width: min(300px, 100%);
+/* 3D coverflow: JS gives each card its signed distance from the active card (--offset) */
+.carousel {
+    --card-width: 260px;
+    --card-spacing: 210px;
+    position: relative;
+    height: 480px;
+    max-width: 1200px;
+    margin: 0 auto;
+    outline: none;
+    touch-action: pan-y;
+    cursor: grab;
+}
+
+.carousel__spotlight {
+    position: absolute;
+    left: 50%;
+    top: -12%;
+    width: 520px;
+    height: 120%;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse 50% 60% at 50% 45%, rgba(243, 220, 166, .28), transparent 70%);
+    pointer-events: none;
+    animation: spotlight-breathe 5s ease-in-out infinite;
+}
+
+@keyframes spotlight-breathe {
+    50% { opacity: .6; }
+}
+
+.carousel__stage {
+    position: absolute;
+    inset: 0;
+    perspective: 1400px;
+    perspective-origin: 50% 30%;
+}
+
+.carousel__ring {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    width: var(--card-width);
+    margin-left: calc(var(--card-width) / -2);
+    transform-style: preserve-3d;
+}
+
+.carousel__floor {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 0;
+    height: 80px;
+    background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 0, 0, .45), transparent 70%);
+    pointer-events: none;
 }
 
 .polaroid {
-    --tilt: -3deg;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--card-width);
     background: var(--color-paper);
     padding: .9rem .9rem 0;
-    box-shadow: 0 20px 40px -18px rgba(0, 0, 0, .6);
-    cursor: zoom-in;
-    rotate: var(--tilt);
-    transition: rotate .6s var(--ease-out), scale .6s var(--ease-out), box-shadow .6s, opacity 1s var(--ease-out), transform 1s var(--ease-out);
+    box-shadow: 0 25px 50px -20px rgba(0, 0, 0, .7);
+    --distance: max(var(--offset), -1 * var(--offset));
+    z-index: calc(10 - var(--distance));
+    transform:
+        translateX(calc(var(--offset) * var(--card-spacing)))
+        translateZ(calc(var(--distance) * -180px))
+        rotateY(calc(var(--offset) * -28deg))
+        rotate(var(--tilt, 0deg));
+    filter: brightness(calc(1 - var(--distance) * .22)) saturate(calc(1 - var(--distance) * .15));
+    cursor: pointer;
+    transition: filter 1s var(--ease-out), box-shadow 1s var(--ease-out), transform 1s var(--ease-out);
+    -webkit-box-reflect: below 6px linear-gradient(transparent 70%, rgba(255, 255, 255, .18));
 }
 
-.polaroid:nth-child(2n) { --tilt: 2.5deg; }
-.polaroid:nth-child(3n) { --tilt: -1.5deg; }
-.polaroid:nth-child(5n) { --tilt: 3.5deg; }
+.polaroid:nth-child(odd) { --tilt: -2deg; }
+.polaroid:nth-child(even) { --tilt: 2deg; }
 
-.polaroid:hover,
-.polaroid:focus-visible {
-    rotate: 0deg;
-    scale: 1.05;
-    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .75);
-    outline: none;
+.polaroid.is-active {
+    --tilt: 0deg;
+    filter: none;
+    cursor: zoom-in;
+    box-shadow:
+        0 0 0 1px var(--color-gold),
+        0 0 40px rgba(243, 220, 166, .45),
+        0 30px 60px -20px rgba(0, 0, 0, .8);
 }
 
 .polaroid img {
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
+    pointer-events: none;
+    user-select: none;
 }
 
 .polaroid figcaption {
@@ -511,6 +571,63 @@ img {
     font-size: 1.5rem;
     color: var(--color-wine);
     padding: .6rem 0 .8rem;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    margin-top: 1.5rem;
+}
+
+.carousel-controls__arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(217, 178, 106, .6);
+    background: transparent;
+    color: var(--color-gold-light);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .3s, color .3s, transform .3s;
+}
+
+.carousel-controls__arrow:hover,
+.carousel-controls__arrow:focus-visible {
+    background: var(--color-gold);
+    color: var(--color-wine-deep);
+    transform: scale(1.08);
+}
+
+.carousel-controls__dots {
+    display: flex;
+    gap: .6rem;
+}
+
+.carousel-controls__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: rgba(217, 178, 106, .35);
+    cursor: pointer;
+    transition: width .4s var(--ease-out), background .4s;
+}
+
+.carousel-controls__dot.is-active {
+    width: 28px;
+    background: var(--color-gold);
+}
+
+.carousel-caption {
+    margin-top: 1.4rem;
+    min-height: 2.6rem;
+    font-family: var(--font-script);
+    font-size: 2rem;
+    color: var(--color-gold-light);
 }
 
 /* ============================================
@@ -745,9 +862,14 @@ img {
         border-left: none;
     }
 
-    .polaroid-wall {
-        gap: 2.2rem;
-        padding: 0 .6rem;
+    .carousel {
+        --card-width: 180px;
+        --card-spacing: 95px;
+        height: 380px;
+    }
+
+    .polaroid figcaption {
+        font-size: 1.2rem;
     }
 }
 

@@ -25,7 +25,7 @@
         </div>
 
         <div class="hero-inner">
-            <p class="eyebrow reveal">Team E trân trọng kính gửi</p>
+            <p class="eyebrow reveal">Với tất cả yêu thương từ Team E</p>
 
             <svg class="lotus reveal" viewBox="0 0 200 120" aria-hidden="true">
                 <path d="M100 110 C 80 80, 80 40, 100 10 C 120 40, 120 80, 100 110 Z"/>
@@ -103,32 +103,41 @@
                 đáng nhớ
             </h2>
 
-            <div class="polaroid-wall">
-                <figure class="polaroid reveal" tabindex="0">
-                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/image_2.png?v=1772785335" alt="Kỷ niệm Team E 1" loading="lazy">
-                    <figcaption>Cùng nhau</figcaption>
+            <div class="carousel reveal" id="carousel" tabindex="0" aria-roledescription="carousel" aria-label="Những khoảnh khắc đáng nhớ">
+                <div class="carousel__spotlight" aria-hidden="true"></div>
+                <div class="carousel__stage">
+                    <div class="carousel__ring" id="carouselRing">
+                <figure class="polaroid">
+                    <img src="https://dev-sbc-bucket.s3.us-east-2.amazonaws.com/po/optis-test.myshopify.com-1/1792463723473-265309826-ScreenshotFrom2026-10-2009-34-34.png" alt="Nụ cười hiền trên bậc thềm" loading="lazy">
+                    <figcaption>Nụ cười hiền</figcaption>
                 </figure>
-                <figure class="polaroid reveal" tabindex="0">
-                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/image_3.png?v=1772785402" alt="Kỷ niệm Team E 2" loading="lazy">
-                    <figcaption>Rạng rỡ</figcaption>
+                <figure class="polaroid">
+                    <img src="https://cdn.optis.me/po/dev-nghia-lc.myshopify.com-33131/1792462972951-887577721-rn_image_picker_lib_temp_4c757dbd-1226-4bdb-9b11-9766bfada1ce.jpg" alt="Váy trắng bên bờ biển" loading="lazy">
+                    <figcaption>Dịu dàng bên biển</figcaption>
                 </figure>
-                <figure class="polaroid reveal" tabindex="0">
-                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/IMG_20260121_20534246.jpg?v=1772785520" alt="Kỷ niệm Team E 3" loading="lazy">
-                    <figcaption>Ấm áp</figcaption>
+                <figure class="polaroid">
+                    <img src="https://cdn.optis.me/po/dev-nghia-lc.myshopify.com-33131/1792463634538-324884713-Screenshot_20261020_091454_Facebook.jpg" alt="Nụ cười bên chiếc bánh hồng" loading="lazy">
+                    <figcaption>Ngọt ngào</figcaption>
                 </figure>
-                <figure class="polaroid reveal" tabindex="0">
-                    <img src="https://cdn.shopify.com/s/files/1/0935/1761/1304/files/IMG20251101132650.jpg?v=1772789360" alt="Kỷ niệm Team E 4" loading="lazy">
-                    <figcaption>Gắn kết</figcaption>
+                <figure class="polaroid">
+                    <img src="https://cdn.optis.me/po/dev-nghia-lc.myshopify.com-33131/1792463452111-323114490-C%C3%83%C2%B4g%C3%83%C2%A1it%C3%83%C2%B3cd%C3%83igi%C3%86%C2%A1d%C3%A1%C2%BA%C2%A5uV.png" alt="Nụ cười tinh nghịch" loading="lazy">
+                    <figcaption>Tinh nghịch</figcaption>
                 </figure>
-                <figure class="polaroid reveal" tabindex="0">
-                    <img src="https://cdn.shopify.com/s/files/1/0660/8610/9378/files/image_2.png?v=1772785653" alt="Kỷ niệm Team E 5" loading="lazy">
-                    <figcaption>Tươi vui</figcaption>
+                <figure class="polaroid">
+                    <img src="https://dev-sbc-bucket.s3.us-east-2.amazonaws.com/po/optis-test.myshopify.com-1/1792463125635-59232959-rn_image_picker_lib_temp_725bd3ea-940d-4361-ada3-dfa65457cb0f.jpg" alt="Miệt mài bên bàn làm việc" loading="lazy">
+                    <figcaption>Chăm chỉ mỗi ngày</figcaption>
                 </figure>
-                <figure class="polaroid reveal" tabindex="0">
-                    <img src="https://cdn.shopify.com/s/files/1/0738/7270/3701/files/z6849359303815_ceba4476fffbec5da630409b698b4821.jpg?v=1772788125" alt="Kỷ niệm Team E 6" loading="lazy">
-                    <figcaption>Team E</figcaption>
-                </figure>
+                    </div>
+                </div>
+                <div class="carousel__floor" aria-hidden="true"></div>
             </div>
+
+            <div class="carousel-controls reveal">
+                <button class="carousel-controls__arrow" id="carouselPrev" type="button" aria-label="Ảnh trước">‹</button>
+                <div class="carousel-controls__dots" id="carouselDots"></div>
+                <button class="carousel-controls__arrow" id="carouselNext" type="button" aria-label="Ảnh sau">›</button>
+            </div>
+            <p class="carousel-caption" id="carouselCaption" aria-live="polite"></p>
         </section>
 
         <!-- Virtues -->

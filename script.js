@@ -190,16 +190,6 @@ function setupLightbox() {
         document.body.style.overflow = ''
     }
 
-    document.querySelectorAll('.polaroid').forEach((polaroid) => {
-        const polaroidImage = polaroid.querySelector('img')
-        if (!polaroidImage) return
-
-        polaroid.addEventListener('click', () => openLightbox(polaroidImage))
-        polaroid.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') openLightbox(polaroidImage)
-        })
-    })
-
     lightboxClose.addEventListener('click', closeLightbox)
     lightbox.addEventListener('click', (event) => {
         if (event.target === lightbox) closeLightbox()
@@ -207,6 +197,121 @@ function setupLightbox() {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && !lightbox.hidden) closeLightbox()
     })
+
+    return openLightbox
+}
+
+/* ============================================
+   3D PHOTO CAROUSEL
+   ============================================ */
+const CAROUSEL_AUTOPLAY_INTERVAL_MS = 3800
+const CAROUSEL_DRAG_THRESHOLD_PX = 40
+
+function setupCarousel(openLightbox) {
+    const carousel = document.getElementById('carousel')
+    const carouselRing = document.getElementById('carouselRing')
+    const carouselDots = document.getElementById('carouselDots')
+    const carouselCaption = document.getElementById('carouselCaption')
+    const polaroids = Array.from(carouselRing.querySelectorAll('.polaroid'))
+    let activeCardIndex = 0
+    let autoplayTimerId
+    let dragStartX
+    let wasDragged = false
+
+    const dotButtons = polaroids.map((polaroid, cardIndex) => {
+        const dotButton = document.createElement('button')
+        dotButton.type = 'button'
+        dotButton.className = 'carousel-controls__dot'
+        dotButton.setAttribute('aria-label', `Ảnh ${cardIndex + 1}`)
+        dotButton.addEventListener('click', () => rotateToCard(cardIndex))
+        carouselDots.append(dotButton)
+        return dotButton
+    })
+
+    // Signed distance in the circular order, e.g. -2..2 for five cards, so cards wrap around both sides.
+    function resolveCardOffset(cardIndex) {
+        const forwardDistance = (cardIndex - activeCardIndex + polaroids.length) % polaroids.length
+        return forwardDistance > polaroids.length / 2 ? forwardDistance - polaroids.length : forwardDistance
+    }
+
+    function renderCarousel() {
+        polaroids.forEach((polaroid, cardIndex) => {
+            polaroid.style.setProperty('--offset', resolveCardOffset(cardIndex))
+            polaroid.classList.toggle('is-active', cardIndex === activeCardIndex)
+        })
+        dotButtons.forEach((dotButton, cardIndex) => {
+            dotButton.classList.toggle('is-active', cardIndex === activeCardIndex)
+        })
+        carouselCaption.textContent = polaroids[activeCardIndex].querySelector('figcaption')?.textContent ?? ''
+    }
+
+    function rotateToCard(targetCardIndex) {
+        activeCardIndex = (targetCardIndex + polaroids.length) % polaroids.length
+        renderCarousel()
+        restartAutoplay()
+    }
+
+    function rotateBy(stepDelta) {
+        rotateToCard(activeCardIndex + stepDelta)
+    }
+
+    function restartAutoplay() {
+        clearInterval(autoplayTimerId)
+        if (prefersReducedMotion) return
+
+        autoplayTimerId = setInterval(() => {
+            activeCardIndex = (activeCardIndex + 1) % polaroids.length
+            renderCarousel()
+        }, CAROUSEL_AUTOPLAY_INTERVAL_MS)
+    }
+
+    polaroids.forEach((polaroid, cardIndex) => {
+        polaroid.addEventListener('click', () => {
+            if (wasDragged) return
+
+            if (cardIndex === activeCardIndex) {
+                const polaroidImage = polaroid.querySelector('img')
+                if (polaroidImage) openLightbox(polaroidImage)
+                return
+            }
+
+            rotateToCard(cardIndex)
+        })
+    })
+
+    document.getElementById('carouselPrev').addEventListener('click', () => rotateBy(-1))
+    document.getElementById('carouselNext').addEventListener('click', () => rotateBy(1))
+
+    carousel.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') rotateBy(-1)
+        if (event.key === 'ArrowRight') rotateBy(1)
+    })
+
+    carousel.addEventListener('mouseenter', () => clearInterval(autoplayTimerId))
+    carousel.addEventListener('mouseleave', restartAutoplay)
+
+    carousel.addEventListener('pointerdown', (event) => {
+        dragStartX = event.clientX
+        wasDragged = false
+    })
+
+    window.addEventListener('pointermove', (event) => {
+        if (dragStartX === undefined) return
+
+        const dragDistancePx = event.clientX - dragStartX
+        if (Math.abs(dragDistancePx) < CAROUSEL_DRAG_THRESHOLD_PX) return
+
+        wasDragged = true
+        dragStartX = event.clientX
+        rotateBy(dragDistancePx < 0 ? 1 : -1)
+    })
+
+    window.addEventListener('pointerup', () => {
+        dragStartX = undefined
+    })
+
+    renderCarousel()
+    restartAutoplay()
 }
 
 /* ============================================
@@ -216,7 +321,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupRevealOnScroll()
     setupEnvelope()
     setupWishCard()
-    setupLightbox()
+    const openLightbox = setupLightbox()
+    setupCarousel(openLightbox)
 
     if (!prefersReducedMotion) startFallingPetals()
 })
