@@ -136,12 +136,12 @@ function initStars() {
             // Vẽ ngôi sao
             starsCtx.beginPath();
             starsCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            starsCtx.fillStyle = `rgba(255, 182, 193, ${star.opacity})`;
+            starsCtx.fillStyle = `rgba(255, 205, 150, ${star.opacity})`;
             starsCtx.fill();
             
             // Thêm hiệu ứng glow
             starsCtx.shadowBlur = 10;
-            starsCtx.shadowColor = 'rgba(255, 182, 193, 0.8)';
+            starsCtx.shadowColor = 'rgba(255, 205, 150, 0.8)';
             starsCtx.fill();
             starsCtx.shadowBlur = 0;
         });
@@ -376,7 +376,7 @@ function initGiftBox() {
                         particleCount: 100,
                         spread: 70,
                         origin: { y: 0.6 },
-                        colors: ['#ff6b9d', '#c44569', '#b19cd9', '#ffb3d9', '#a8e6cf']
+                        colors: ['#d7263d', '#9e1b32', '#e09f1f', '#f4a7a3', '#ffd98e']
                     });
                     
                     // Bắn confetti thêm lần nữa sau 300ms
@@ -386,7 +386,7 @@ function initGiftBox() {
                             angle: 60,
                             spread: 55,
                             origin: { x: 0 },
-                            colors: ['#ff6b9d', '#c44569', '#b19cd9', '#ffb3d9', '#a8e6cf']
+                            colors: ['#d7263d', '#9e1b32', '#e09f1f', '#f4a7a3', '#ffd98e']
                         });
                         
                         confetti({
@@ -394,7 +394,7 @@ function initGiftBox() {
                             angle: 120,
                             spread: 55,
                             origin: { x: 1 },
-                            colors: ['#ff6b9d', '#c44569', '#b19cd9', '#ffb3d9', '#a8e6cf']
+                            colors: ['#d7263d', '#9e1b32', '#e09f1f', '#f4a7a3', '#ffd98e']
                         });
                     }, 300);
                 }
@@ -544,7 +544,7 @@ function initHoverEffects() {
     glowElements.forEach(element => {
         element.addEventListener('mouseenter', function() {
             this.style.transition = 'all 0.3s ease';
-            this.style.filter = 'drop-shadow(0 0 20px rgba(255, 107, 157, 0.6))';
+            this.style.filter = 'drop-shadow(0 0 20px rgba(215, 38, 61, 0.6))';
         });
         
         element.addEventListener('mouseleave', function() {
@@ -577,5 +577,5 @@ window.addEventListener('resize', throttle(() => {
 /* ============================================
    CONSOLE MESSAGE
    ============================================ */
-console.log('%c🌸 Chúc mừng Ngày Quốc tế Phụ nữ 8/3! 🌸', 'color: #ff6b9d; font-size: 20px; font-weight: bold;');
-console.log('%cTrang web được tạo với ❤️ bởi team developers', 'color: #b19cd9; font-size: 14px;');
+console.log('%c🌸 Chúc mừng Ngày Phụ nữ Việt Nam 20/10! 🌸', 'color: #d7263d; font-size: 20px; font-weight: bold;');
+console.log('%cTrang web được tạo với ❤️ bởi team developers', 'color: #e09f1f; font-size: 14px;');
